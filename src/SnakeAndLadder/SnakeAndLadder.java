@@ -10,6 +10,7 @@ public class SnakeAndLadder{
       int position=0;
       System.out.println("Welcome to Snake and Ladder Game");
       System.out.println("Initial Position is 0");
+      int numberOfTimesDiceRolled=0;
       while(position<=100)//UC4 - Repeating until the position reaches 100
       {
       int diceNumber=game.RollTheDice();//UC2
@@ -18,16 +19,22 @@ public class SnakeAndLadder{
       if(position>100) //UC5 -Ensuring the player gets exact winning position- 100 
       continue;
       if(position<0)
-      position=0;
+       {
+         position=0;      
+        } 
+      numberOfTimesDiceRolled+=1; //UC6 - Number of  times dice rolled
       }
+        System.out.println("Number Of Times Dice Rolled : " + numberOfTimesDiceRolled);
        System.out.println("WON");
       }
+      
       private int RollTheDice() //UC2 - The Player rolls the dice to get a number between 1 to 6.
       {
 		int Number = (int) (Math.floor(Math.random() * 10) % 6 + 1);//using Random function to get a number betweem 1 to 6
 		//System.out.println("Dice rolled and the number is: " + Number);
 		return Number;
       }
+      
       private int checkPlayOption(int position, int diceNumber)//UC3 -  Check for play option - Options : No Play, Snake, Ladder.
       {
        int play=0;
