@@ -15,6 +15,10 @@ public class SnakeAndLadder{
       int diceNumber=game.RollTheDice();//UC2
       int playNumber=game.checkPlayOption(position, diceNumber);//UC3
       position=position+diceNumber*playNumber;//Calculating the positions
+      if(position>100) //UC5 -Ensuring the player gets exact winning position- 100 
+      continue;
+      if(position<0)
+      position=0;
       }
        System.out.println("WON");
       }
